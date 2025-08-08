@@ -55,6 +55,7 @@ struct TicketOptionView: View {
     }
 }
 
+
 #Preview {
     TicketOptionView()
 }
