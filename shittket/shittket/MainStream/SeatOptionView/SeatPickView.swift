@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SeatPickView: View {
+    let answerSeat = Seat(teamNum: 8, seatNum: 2, x: 188, y: 287)
+    
     let seats = [
         Seat(teamNum: 7, seatNum: 1, x: 92, y: 265),
         Seat(teamNum: 7, seatNum: 2, x: 60, y: 283),
@@ -26,9 +28,6 @@ struct SeatPickView: View {
     
     @State private var selectedSeat: Seat? = nil
     
-    let selectedColor: Color = .blue
-    let unselectedColor: Color = .gray
-    
     var body: some View {
         ZStack {
             Image(.seats)
@@ -41,12 +40,24 @@ struct SeatPickView: View {
                     selectSeat(seat)
                 }) {
                     Rectangle()
-                        .foregroundStyle(seat == selectedSeat ? selectedColor : unselectedColor)
+                        .foregroundStyle(seatColor(seat))
                         .frame(width: 10, height: 10)
                 }
                 .position(x: seat.x, y: seat.y)
             }
         }
+    }
+    
+    private func seatColor(_ seat: Seat) -> Color {
+        if seat == selectedSeat {
+            return Color.gray
+        }
+        
+        if seat == answerSeat {
+            return Color(red: 0.46, green: 0.92, blue: 0.43)
+        }
+        
+        return Color(red: 0.52, green: 0.92, blue: 0.49)
     }
     
     private func selectSeat(_ seat: Seat) {
