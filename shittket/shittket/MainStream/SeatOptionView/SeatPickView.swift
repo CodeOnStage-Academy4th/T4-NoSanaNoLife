@@ -69,21 +69,6 @@ struct SeatPickView: View {
     }
 }
 
-struct Seat: Identifiable, Equatable {
-    let teamNum: Int
-    let seatNum: Int
-    let x: CGFloat
-    let y: CGFloat
-    
-    var id: String {
-        "\(teamNum)-\(seatNum)"
-    }
-    
-    static func == (lhs: Seat, rhs: Seat) -> Bool {
-        lhs.id == rhs.id
-    }
-}
-
 #Preview {
     SeatPickView()
 }
