@@ -9,7 +9,18 @@ import SwiftUI
 
 struct ContentGridView: View {
     var body: some View {
-        Image(.poster1)
+        HStack {
+            Image(.poster1)
+            
+            VStack {
+                Text("Earth Rock\nExtravaganza")
+                .font(
+                Font.custom("Wanted Sans", size: 20)
+                .weight(.semibold)
+                )
+                .foregroundColor(.black)
+            }
+        }
     }
 }
 
