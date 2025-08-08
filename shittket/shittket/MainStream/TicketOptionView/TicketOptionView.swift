@@ -40,28 +40,26 @@ struct TicketOptionView: View {
                     }
 
             TicketCounter(ticketCount: $ticketCount)
-        }
-        .padding()
-        
-        Divider()
-        
-        HStack(){
-            Spacer()
-            
-            Text("1인 1매만 예매 가능합ㄴ디ㅏ")
-        }
-        
-        Spacer()
 
-        VStack {
-            YesButCancelButton(action: {
-                print("")
-            })
-            LongTextButton()
+            Divider()
+
+            HStack {
+                Spacer()
+
+                Text("1인 1매만 예매 가능합ㄴ디ㅏ")
+            }
+
+            Spacer()
+
+            VStack {
+                YesButCancelButton(action: {
+                    print("")
+                })
+                LongTextButton()
+            }
         }
     }
 }
-
 
 #Preview {
     TicketOptionView()
