@@ -33,10 +33,3 @@ extension View {
         self.modifier(ScreenFlipModifier(HorizontalFlip: horizontal, VerticalFlip: vertical))
     }
 }
-
-extension View {
-    func screenFlip(isActive: Bool, direction: FlipDirection) -> some View {
-        self.modifier(ScreenFlipModifier(isActive: isActive, direction: direction))
-    }
-}
-
