@@ -30,22 +30,24 @@ struct SeatPickView: View {
     @State private var showAlert: Bool = false
     
     var body: some View {
-        VStack {
-            ZStack {
-                Image(.seats)
-                    .resizable()
-                    .scaledToFit()
-                    .grayscale(0.5)
-                
-                ForEach(seats) { seat in
-                    Button(action: {
-                        selectSeat(seat)
-                    }) {
-                        Rectangle()
-                            .foregroundStyle(seatColor(seat))
-                            .frame(width: 10, height: 10)
+        ZStack(alignment: .bottom) {
+            VStack {
+                ZStack {
+                    Image(.seats)
+                        .resizable()
+                        .scaledToFit()
+                        .grayscale(0.5)
+                    
+                    ForEach(seats) { seat in
+                        Button(action: {
+                            selectSeat(seat)
+                        }) {
+                            Rectangle()
+                                .foregroundStyle(seatColor(seat))
+                                .frame(width: 10, height: 10)
+                        }
+                        .position(x: seat.x, y: seat.y)
                     }
-                    .position(x: seat.x, y: seat.y)
                 }
             }
             
