@@ -34,19 +34,20 @@ struct PaymentMethodView: View {
     @State private var selectedBankName: String?
     @State private var selectedButtonTitle: String?
     
-    //    @Binding var bankMatched: Bool
+    @Binding var bankMatched: Bool
     
-    // --- 초기화 ---
-    init() {
+
+    init(bankMatched: Binding<Bool>) {
+        self._bankMatched = bankMatched
         let titles = [
             "케이뱅크", "기업은행", "농협은행", "KB은행", // 정답 이름
             "캌옼뱅크", "기억은행", "토스벵크", "굴비은행", "신난은행", "농혁은행",
             "제옹은행", "카뱅은행", "SC은행", "신핫은행", "무리은행", "토슼뱅크", "케익뱅크",
             "궁민은행", "국민은헹", "은헹벵크"
         ]
-        _buttonTitles = State(initialValue: titles.shuffled())
+
+        self._buttonTitles = State(initialValue: titles.shuffled())
     }
-    
 
     private let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
@@ -56,10 +57,7 @@ struct PaymentMethodView: View {
         }
         return bankName == buttonTitle
     }
-    
 
-    
-    
     var body: some View {
         ScrollView {
             VStack {
@@ -92,12 +90,11 @@ struct PaymentMethodView: View {
                 Spacer()
                     .frame(height: 40)
                 
-                // --- 이름 버튼 그리드 ---
+                // 은행 선택
                 VStack {
                     LazyVGrid(columns: columns, spacing: 15) {
                         ForEach(buttonTitles, id: \.self) { title in
                             Button(action: {
-                                // 클릭된 버튼의 '텍스트'를 상태에 저장
                                 selectedButtonTitle = title
                             }) {
                                 Text(title)
@@ -111,15 +108,11 @@ struct PaymentMethodView: View {
                         }
                     }
                 }
-                
-                .padding(.horizontal, 40)
-                
+                .padding(.horizontal, 40) 
+            }
+            .onChange(of: isMatch) {
+                bankMatched = isMatch
             }
         }
-        
     }
-}
-
-#Preview {
-    PaymentMethodView()
 }
