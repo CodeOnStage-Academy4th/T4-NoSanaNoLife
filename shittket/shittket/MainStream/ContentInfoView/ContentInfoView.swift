@@ -97,6 +97,7 @@ struct ContentInfoView: View {
                 .cornerRadius(12)
             }
         }
+        .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("Code on Stage")
