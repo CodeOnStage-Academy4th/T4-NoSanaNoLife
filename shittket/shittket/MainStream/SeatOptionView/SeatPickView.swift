@@ -9,36 +9,64 @@ import SwiftUI
 
 struct SeatPickView: View {
     let seats = [
-        Seat(id: 1, x: 100, y: 100, isSelected: true),
-        Seat(id: 2, x: 200, y: 100, isSelected: false),
-        Seat(id: 3, x: 300, y: 100, isSelected: false),
+        Seat(teamNum: 7, seatNum: 1, x: 92, y: 265),
+        Seat(teamNum: 7, seatNum: 2, x: 60, y: 283),
+        Seat(teamNum: 7, seatNum: 3, x: 90, y: 300),
+        Seat(teamNum: 7, seatNum: 4, x: 30, y: 315),
+        Seat(teamNum: 7, seatNum: 5, x: 62, y: 298),
+        Seat(teamNum: 7, seatNum: 6, x: 60, y: 332),
+        
+        Seat(teamNum: 8, seatNum: 1, x: 157,  y: 268),
+        Seat(teamNum: 8, seatNum: 2, x: 188, y: 287),
+        Seat(teamNum: 8, seatNum: 3, x: 158, y: 303),
+        Seat(teamNum: 8, seatNum: 4, x: 200, y: 270),
+        Seat(teamNum: 8, seatNum: 5, x: 198, y: 307),
+        Seat(teamNum: 8, seatNum: 6, x: 227, y: 290),
     ]
+    
+    @State private var selectedSeat: Seat? = nil
+    
+    let selectedColor: Color = .blue
+    let unselectedColor: Color = .gray
     
     var body: some View {
         ZStack {
             Image(.seats)
                 .resizable()
                 .scaledToFit()
-                .grayscale(1)
+                .grayscale(0.5)
             
             ForEach(seats) { seat in
                 Button(action: {
+                    selectSeat(seat)
                 }) {
                     Rectangle()
-                        .foregroundStyle(seat.isSelected ? .blue : .red)
+                        .foregroundStyle(seat == selectedSeat ? selectedColor : unselectedColor)
                         .frame(width: 10, height: 10)
                 }
                 .position(x: seat.x, y: seat.y)
             }
         }
     }
+    
+    private func selectSeat(_ seat: Seat) {
+        selectedSeat = seat
+    }
 }
 
-struct Seat: Identifiable {
-    let id: Int
+struct Seat: Identifiable, Equatable {
+    let teamNum: Int
+    let seatNum: Int
     let x: CGFloat
     let y: CGFloat
-    var isSelected: Bool
+    
+    var id: String {
+        "\(teamNum)-\(seatNum)"
+    }
+    
+    static func == (lhs: Seat, rhs: Seat) -> Bool {
+        lhs.id == rhs.id
+    }
 }
 
 #Preview {
