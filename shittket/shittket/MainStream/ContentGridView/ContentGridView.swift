@@ -14,9 +14,7 @@ struct ContentGridView: View {
             
             VStack {
                 Text("Earth Rock\nExtravaganza")
-                .font(
-                Font.custom("Wanted Sans", size: 20)
-                .weight(.semibold)
+                    .font(.wantedSans(.semiBold, size: 20)
                 )
                 .foregroundColor(.black)
             }
