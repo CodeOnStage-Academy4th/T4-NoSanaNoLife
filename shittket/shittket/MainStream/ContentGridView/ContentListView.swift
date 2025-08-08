@@ -17,7 +17,7 @@ struct ContentListView: View {
                             .foregroundColor(.clear)
                             .frame(height: 1)
                             .background(Color(red: 0.86, green: 0.86, blue: 0.86))
-                        ContentRowView(contentRow: card)
+                        ContentRowView(contentRow: card, disabled: !card.isAvailable)
                     }
                 }
                 .padding(.horizontal, 20)
