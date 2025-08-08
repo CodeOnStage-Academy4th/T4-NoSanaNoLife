@@ -8,10 +8,13 @@
 import SwiftUI
 
 @main
-struct shittketApp: App {
+struct MyApp: App {
+    @StateObject private var eventManager = EventManager()
+
     var body: some Scene {
         WindowGroup {
-            SeatPickView()
+            ContentView()
+                .environmentObject(eventManager)
         }
     }
 }

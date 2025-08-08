@@ -25,12 +25,19 @@ import Foundation
 import SwiftUI
 
 struct TicketOptionView: View {
+    @EnvironmentObject var eventManager: EventManager
+    
     @State private var contentDateRaw = ""
     @State private var ticketCount: Double = 10
 
     var body: some View {
         VStack(spacing: 32) {
             DatePickerView(dateInput: $contentDateRaw)
+                .onTapGesture {
+                        if Double.random(in: 0...1) < 0.6 {
+                            eventManager.triggerScreenFlip()
+                        }
+                    }
 
             TicketCounter(ticketCount: $ticketCount)
 
