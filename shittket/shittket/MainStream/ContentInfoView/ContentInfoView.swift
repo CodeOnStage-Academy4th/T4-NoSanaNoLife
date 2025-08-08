@@ -48,7 +48,7 @@ struct ContentInfoView: View {
                                     .stroke(.white, lineWidth: 1)
                             )
                         NavigationLink("예매하기") {
-                            
+                            QuizView()
                         }
                         .foregroundStyle(.white)
                         .padding(10)

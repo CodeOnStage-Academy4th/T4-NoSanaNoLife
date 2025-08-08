@@ -91,6 +91,7 @@ struct QuizView: View {
         } message: {
             Text("정보를 잘 보는 것이 중요합니다.")
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     private func selectAnswer(questionIndex: Int, optionIndex: Int) {
