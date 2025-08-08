@@ -14,12 +14,12 @@ struct PurchaseView: View {
     
     // 결제 정보
     @State private var finalPrice: Int = 100
-    @State private var isPriceCompleted: Bool = false
+    @State private var isPriceCompleted: Bool = true
     @State private var bankMatched = false
     
     // 결제 버튼 활성화 조건
     var isPaymentReady: Bool {
-        isNameCompleted && isContactcompleted && isPriceCompleted
+        isNameCompleted && isContactcompleted && isPriceCompleted && bankMatched
     }
     
     // 알림창
@@ -124,8 +124,9 @@ struct PurchaseView: View {
                         Divider()
                         
                         // 결제 수단
-//                        PaymentMethodView(bankMatched: $bankMatched)
-                        PaymentMethodView()
+                        PaymentMethodView(bankMatched: $bankMatched)
+                        Spacer()
+                            .frame(height: 10)
                         
                         
                         
