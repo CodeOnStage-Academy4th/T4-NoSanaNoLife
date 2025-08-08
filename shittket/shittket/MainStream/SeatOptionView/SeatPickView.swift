@@ -61,7 +61,11 @@ struct SeatPickView: View {
     }
     
     private func selectSeat(_ seat: Seat) {
-        selectedSeat = seat
+        if selectedSeat == seat {
+            selectedSeat = nil
+        } else {
+            selectedSeat = seat
+        }
     }
 }
 
