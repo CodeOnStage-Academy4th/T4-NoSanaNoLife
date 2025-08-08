@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct ContentRowView: View {
+    let contentRow: FestivalCard
+    
     var body: some View {
         HStack {
-            Image(.poster1)
+            Image(contentRow.imageReSource)
             
             Spacer()
             
             VStack(alignment: .leading, spacing: 4) {
-                Text("Earth Rock\nExtravaganza")
+                Text(contentRow.name)
                     .font(.wantedSans(.semiBold, size: 20))
-                Text("07.26-28.2077")
+                Text(contentRow.dateInfo)
                     .font(.wantedSans(.medium, size: 17))
             }
             .padding(10)
@@ -43,5 +45,5 @@ struct RowButtonStyle: ButtonStyle {
 }
 
 #Preview {
-    ContentRowView()
+    ContentRowView(contentRow: festivalCards[0])
 }
