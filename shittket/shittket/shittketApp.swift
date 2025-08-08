@@ -11,7 +11,7 @@ import SwiftUI
 struct shittketApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SeatPickView()
         }
     }
 }
