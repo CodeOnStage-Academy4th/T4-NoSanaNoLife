@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		A7B81ED42E468F47008FCE96 /* Exceptions for "shittket" folder in "shittket" target */ = {
+		265D2BD82E46B2050092AB84 /* Exceptions for "shittket" folder in "shittket" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -24,7 +24,7 @@
 		265D2A6E2E465F940092AB84 /* shittket */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				A7B81ED42E468F47008FCE96 /* Exceptions for "shittket" folder in "shittket" target */,
+				265D2BD82E46B2050092AB84 /* Exceptions for "shittket" folder in "shittket" target */,
 			);
 			path = shittket;
 			sourceTree = "<group>";
