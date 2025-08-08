@@ -92,6 +92,13 @@ struct QuizView: View {
             Text("정보를 잘 보는 것이 중요합니다.")
         }
         .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("깜짝 퀴즈")
+                    .font(.wantedSans(.semiBold, size: 20))
+            }
+        }
     }
     
     private func selectAnswer(questionIndex: Int, optionIndex: Int) {
