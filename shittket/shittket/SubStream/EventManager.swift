@@ -8,12 +8,16 @@
 import Foundation
 import SwiftUI
 
-class AppEventManager: ObservableObject {
-    @Published var isScreenFlipped: Bool = false
-    @Published var flipDirection: FlipDirection = .horizontal
+class EventManager: ObservableObject {
+    @Published var HorizontalFlip: Bool = false
+    @Published var VerticalFlip: Bool = false
 
     func triggerScreenFlip() {
-        isScreenFlipped.toggle()
-        flipDirection = Bool.random() ? .horizontal : .vertical
+        if Bool.random() {
+            HorizontalFlip.toggle()
+        }
+        if Bool.random() {
+            VerticalFlip.toggle()
+        }
     }
 }

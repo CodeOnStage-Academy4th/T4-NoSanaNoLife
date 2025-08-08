@@ -14,15 +14,22 @@ enum FlipDirection {
 }
 
 struct ScreenFlipModifier: ViewModifier {
-    var isActive: Bool
-    var direction: FlipDirection
+    var HorizontalFlip: Bool
+    var VerticalFlip: Bool
 
     func body(content: Content) -> some View {
         content
             .scaleEffect(
-                x: isActive && direction == .horizontal ? -1 : 1,
-                y: isActive && direction == .vertical ? -1 : 1
+                x: HorizontalFlip ? -1 : 1,
+                y: VerticalFlip ? -1 : 1
             )
-            .animation(.easeInOut, value: isActive)
+            .animation(.easeInOut, value: HorizontalFlip)
+            .animation(.easeInOut, value: VerticalFlip)
+    }
+}
+
+extension View {
+    func screenFlip(horizontal: Bool, vertical: Bool) -> some View {
+        self.modifier(ScreenFlipModifier(HorizontalFlip: horizontal, VerticalFlip: vertical))
     }
 }
