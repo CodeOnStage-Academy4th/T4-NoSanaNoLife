@@ -26,16 +26,33 @@ struct DatePickerView: View {
 
                     HStack(spacing: 8) {
                         ForEach(0..<8) { index in
-                            let char = dateInput.count > index
-                                ? String(dateInput[dateInput.index(dateInput.startIndex, offsetBy: index)])
+                            let char =
+                                dateInput.count > index
+                                ? String(
+                                    dateInput[
+                                        dateInput.index(
+                                            dateInput.startIndex,
+                                            offsetBy: index
+                                        )
+                                    ]
+                                )
                                 : ""
 
                             ZStack {
                                 Rectangle()
-                                    .stroke(Color.gray, lineWidth: 1)
-                                    .frame(height: 40)
-                                Text(char)
-                                    .font(.title3)
+                                    .foregroundColor(.primary)
+                                    .frame(
+                                        width: 36,
+                                        height: 36,
+                                        alignment: .center
+                                    )
+                                    .cornerRadius(8)
+                                if char.isEmpty {
+                                    Image("lock-04")
+                                } else {
+                                    Text(char)
+                                        .foregroundColor(Color.white)
+                                }
                             }
 
                             if index == 3 || index == 5 {
@@ -54,9 +71,8 @@ struct DatePickerView: View {
                     showPad = false
                 }
             )
-            // 버튼의 높이
-            .presentationDetents([.fraction(0.3)])
+            // 모달시트 높이
+            .presentationDetents([.fraction(0.8)])
         }
     }
 }
-
