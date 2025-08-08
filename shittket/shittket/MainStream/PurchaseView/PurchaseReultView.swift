@@ -9,7 +9,24 @@ import SwiftUI
 
 struct PurchaseReultView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView{
+            Text("결제가 완료되었습니다.")
+//                .font(.wantedSemi32)
+            Divider()
+                .foregroundColor(.white)
+            
+            //TODO: 장황한 텍스트 입력하기
+            
+            Button(action: {
+                
+            }) {
+                Text("종료하기")
+            }
+        }
+//        .background(.Back2)
+        .navigationTitle("결제 완료")
+        .navigationBarBackButtonHidden()
+        
     }
 }
 
