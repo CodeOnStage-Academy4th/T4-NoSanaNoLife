@@ -27,23 +27,36 @@ struct SeatPickView: View {
     ]
     
     @State private var selectedSeat: Seat? = nil
+    @State private var showAlert: Bool = false
     
     var body: some View {
-        ZStack {
-            Image(.seats)
-                .resizable()
-                .scaledToFit()
-                .grayscale(0.5)
-            
-            ForEach(seats) { seat in
-                Button(action: {
-                    selectSeat(seat)
-                }) {
-                    Rectangle()
-                        .foregroundStyle(seatColor(seat))
-                        .frame(width: 10, height: 10)
+        VStack {
+            ZStack {
+                Image(.seats)
+                    .resizable()
+                    .scaledToFit()
+                    .grayscale(0.5)
+                
+                ForEach(seats) { seat in
+                    Button(action: {
+                        selectSeat(seat)
+                    }) {
+                        Rectangle()
+                            .foregroundStyle(seatColor(seat))
+                            .frame(width: 10, height: 10)
+                    }
+                    .position(x: seat.x, y: seat.y)
                 }
-                .position(x: seat.x, y: seat.y)
+            }
+            
+            Button("버튼입니다") {
+                if selectedSeat != answerSeat {
+                    showAlert = true
+                }
+            }
+            .disabled(selectedSeat == nil)
+            .alert("이미 선택된 좌석입니다.", isPresented: $showAlert) {
+                Button("확인") {}
             }
         }
     }
