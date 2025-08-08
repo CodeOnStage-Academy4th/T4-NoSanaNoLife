@@ -45,6 +45,7 @@ struct PaymentMethodView: View {
             "제옹은행", "카뱅은행", "SC은행", "신핫은행", "무리은행", "토슼뱅크", "케익뱅크",
             "궁민은행", "국민은헹", "은헹벵크"
         ]
+
         self._buttonTitles = State(initialValue: titles.shuffled())
     }
 
@@ -56,8 +57,7 @@ struct PaymentMethodView: View {
         }
         return bankName == buttonTitle
     }
-    
-    
+
     var body: some View {
         ScrollView {
             VStack {
@@ -108,14 +108,11 @@ struct PaymentMethodView: View {
                         }
                     }
                 }
-                
-                .padding(.horizontal, 40)
-                
+                .padding(.horizontal, 40) 
             }
             .onChange(of: isMatch) {
                 bankMatched = isMatch
             }
         }
-        
     }
 }
