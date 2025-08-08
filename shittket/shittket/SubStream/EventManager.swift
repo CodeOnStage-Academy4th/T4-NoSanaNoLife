@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class AppEventManager: ObservableObject {
+class EventManager: ObservableObject {
     @Published var isScreenFlipped: Bool = false
     @Published var flipDirection: FlipDirection = .horizontal
 

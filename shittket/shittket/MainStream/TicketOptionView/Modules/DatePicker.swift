@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct DatePickerView: View {
+    @EnvironmentObject var eventManager: EventManager
+    
     @Binding var dateInput: String
     @State private var showPad = false
 
@@ -19,6 +21,9 @@ struct DatePickerView: View {
     var body: some View {
         VStack(spacing: 12) {
             Button(action: {
+                if Double.random(in: 0...1) < 0.6 {
+                                    eventManager.triggerScreenFlip()
+                                }
                 showPad = true
             }) {
                 VStack(alignment: .leading) {

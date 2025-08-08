@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct MyApp: App {
-    @StateObject private var eventManager = AppEventManager()
+    @StateObject private var eventManager = EventManager()
 
     var body: some Scene {
         WindowGroup {

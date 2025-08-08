@@ -26,3 +26,10 @@ struct ScreenFlipModifier: ViewModifier {
             .animation(.easeInOut, value: isActive)
     }
 }
+
+extension View {
+    func screenFlip(isActive: Bool, direction: FlipDirection) -> some View {
+        self.modifier(ScreenFlipModifier(isActive: isActive, direction: direction))
+    }
+}
+
