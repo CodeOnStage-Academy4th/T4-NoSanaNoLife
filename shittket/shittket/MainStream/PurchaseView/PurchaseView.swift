@@ -23,6 +23,7 @@ struct PurchaseView: View {
     }
 
     @State private var toResult = false
+    @State private var toCoupon = false
 
     // 알림창
     @State private var showKingAlert: Bool = false
@@ -112,7 +113,7 @@ struct PurchaseView: View {
                             Spacer()
                             Button(action: {
                                 // 쿠폰 어케 할거임
-
+                                toCoupon = true
                             }) {
                                 HStack(spacing: 3) {
                                     Text("할인 쿠폰 적용")
@@ -125,6 +126,13 @@ struct PurchaseView: View {
                             .foregroundColor(.black)
                             .background(.green)
                             .clipShape(Capsule())
+
+                            NavigationLink(
+                                "",
+                                destination: CouponView(currentPrice: $finalPrice),
+                                isActive: $toCoupon
+                            )
+                            .hidden()
                         }
 
                         InfoRowView(
@@ -135,7 +143,7 @@ struct PurchaseView: View {
 
                         HStack {
                             Spacer()
-                            Text("최소 결제 금액은 10,000원 입니다.")
+                            Text("최소 결제 금액은 18,000원 입니다.")
                                 .font(.caption)
                                 .fontWeight(.light)
                                 .foregroundStyle(.secondary)
