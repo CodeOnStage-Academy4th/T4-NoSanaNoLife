@@ -11,7 +11,7 @@ struct ContentView: View {
     @EnvironmentObject var eventManager: EventManager
     
     var body: some View {
-        PurchaseReultView()
+        ContentListView()
             .screenFlip(
                 horizontal: eventManager.HorizontalFlip,
                 vertical: eventManager.VerticalFlip

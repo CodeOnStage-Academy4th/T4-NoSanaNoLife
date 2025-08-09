@@ -41,8 +41,8 @@ struct PurchaseReultView: View {
             }
             .padding(17)
             
-            
             Button(action: {
+                
                 exit(0)
             }) {
                 Text("종료하기")
