@@ -48,7 +48,7 @@ struct ContentInfoView: View {
                                     .stroke(.white, lineWidth: 1)
                             )
                         NavigationLink("예매하기") {
-                            
+                            QuizView()
                         }
                         .foregroundStyle(.white)
                         .padding(10)
@@ -97,6 +97,7 @@ struct ContentInfoView: View {
                 .cornerRadius(12)
             }
         }
+        .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("Code on Stage")

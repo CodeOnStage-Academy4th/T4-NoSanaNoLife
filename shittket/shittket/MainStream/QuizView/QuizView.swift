@@ -3,6 +3,8 @@ import SwiftUI
 struct QuizView: View {
     @State private var selectedAnswers: [Int?] = [nil, nil, nil]
     @State private var showAlert = false
+    @State private var navigateToTicket = false
+    @Environment(\.dismiss) private var dismiss
     
     var allQuestionsAnswered: Bool {
         selectedAnswers.allSatisfy { $0 != nil }
@@ -50,13 +52,16 @@ struct QuizView: View {
             Spacer()
             
             VStack(spacing: 12) {
-                Text("이전")
-                    .font(.wantedSans(.medium, size: 17))
-                    .frame(height: 30)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 9)
-                    .background(Color(red: 0.52, green: 0.92, blue: 0.49))
-                    .cornerRadius(24)
+                Button("이전") {
+                    dismiss()
+                }
+                .font(.wantedSans(.medium, size: 17))
+                .foregroundStyle(.black)
+                .frame(height: 30)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 9)
+                .background(Color(red: 0.52, green: 0.92, blue: 0.49))
+                .cornerRadius(24)
                 
                 Rectangle()
                     .foregroundColor(.clear)
@@ -66,13 +71,13 @@ struct QuizView: View {
                 
                 Button("진짜 예매하기") {
                     if allAnswersCorrect {
-                        // 다음 화면으로 이동하는 로직
-                        print("모든 정답 완료!")
+                        navigateToTicket = true
                     } else {
                         showAlert = true
                     }
                 }
                 .font(.wantedSans(.medium, size: 17))
+                .foregroundStyle(.black)
                 .frame(height: 30)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 9)
@@ -90,6 +95,17 @@ struct QuizView: View {
             }
         } message: {
             Text("정보를 잘 보는 것이 중요합니다.")
+        }
+        .navigationDestination(isPresented: $navigateToTicket) {
+            TicketOptionView()
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("깜짝 퀴즈")
+                    .font(.wantedSans(.semiBold, size: 20))
+            }
         }
     }
     
