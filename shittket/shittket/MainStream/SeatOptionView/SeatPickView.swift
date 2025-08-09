@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SeatPickView: View {
+    @State private var isNext = false
+    
     let answerSeat = Seat(teamNum: 8, seatNum: 2, x: 188, y: 287)
     
     let seats = [
@@ -51,15 +53,26 @@ struct SeatPickView: View {
                 }
             }
             
-            Button("버튼입니다") {
+            Button("다음") {
                 if selectedSeat != answerSeat {
                     showAlert = true
+                } else {
+                    isNext = true
                 }
             }
+            .buttonStyle(.borderedProminent)
+            .tint(Color(red: 0.52, green: 0.92, blue: 0.49))
+            .foregroundStyle(.black)
             .disabled(selectedSeat == nil)
+            .frame(maxWidth: .infinity)
+            .frame(height: 150)
+            .background(Color(red: 0.16, green: 0.16, blue: 0.16))
             .alert("이미 선택된 좌석입니다.", isPresented: $showAlert) {
                 Button("확인") {}
             }
+        }
+        .navigationDestination(isPresented: $isNext) {
+            PurchaseView()
         }
     }
     

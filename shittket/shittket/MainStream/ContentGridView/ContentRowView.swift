@@ -27,11 +27,17 @@ struct ContentRowView: View {
             
             Spacer()
             
-            Button("예매하러가기") {
-                
+            if contentRow.isAvailable {
+                NavigationLink("예매하러가기") {
+                    ContentInfoView()
+                }
+                .buttonStyle(RowButtonStyle())
+            } else {
+                Button("예매하러가기") {
+                }
+                .buttonStyle(RowButtonStyle())
+                .disabled(true)
             }
-            .buttonStyle(RowButtonStyle())
-            .disabled(disabled)
         }
     }
 }

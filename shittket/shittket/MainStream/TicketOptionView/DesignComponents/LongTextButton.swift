@@ -10,6 +10,8 @@ import Foundation
 import SwiftUI
 
 struct LongTextButton: View {
+    @State private var isNext = false
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("불구하고 다음으로 넘어가고 싶으시다면, 저곳을 한번 눌러보는 시도를 해보시지 않겠습니까? 여기 말고 저기를 한번 눌러보면 어떨까요? 네, 이곳 문장에서 당신이 다음 페이지로 넘어가고 싶으시다면,")
@@ -18,7 +20,7 @@ struct LongTextButton: View {
                 Text("여기")
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        print("TODO: goto next navigation path")
+                        isNext = true
                     }
 
                 Text("를 한번 눌러보는 시도를 해보시지 않겠습니까?")
@@ -29,6 +31,9 @@ struct LongTextButton: View {
         .font(.wantedMed10)
         .foregroundColor(.gray)
         .padding()
+        .navigationDestination(isPresented: $isNext) {
+            SeatPickView()
+        }
     }
 }
 
