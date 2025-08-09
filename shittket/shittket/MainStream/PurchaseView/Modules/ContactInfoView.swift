@@ -10,8 +10,7 @@ import SwiftUI
 struct ContactInfoView: View {
     @Binding var isContactcompleted: Bool
     
-    
-    @State private var digits: [String] = Array(repeating: "", count: 11)
+    @State private var phone: String = ""
     @State private var isShowingNumberPad = false
     @State private var selectedIndex: Int?
     
@@ -21,8 +20,6 @@ struct ContactInfoView: View {
     
     var body: some View {
         VStack {
-            
-            
             HStack(spacing: 8) {
                 Text("전화번호")
                     .fontWeight(.bold)
@@ -31,7 +28,6 @@ struct ContactInfoView: View {
                 Spacer()
                 // 0부터 10까지 11개의 뷰를 반복 생성
                 ForEach(0..<11, id: \.self) { index in
-                    
                     // 4번째와 8번째는 비활성 원(구분자)으로 표시
                     if index == 3 || index == 7 {
                         Circle()
@@ -44,7 +40,7 @@ struct ContactInfoView: View {
                                 .fill(Color.green.opacity(0.4))
                                 .frame(width: 16, height: 16)
                             
-                            Text(digits[index])
+                            Text(digitAt(phone, index))
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .foregroundColor(.black)
@@ -61,11 +57,51 @@ struct ContactInfoView: View {
         .background(Color.white)
         .cornerRadius(12)
         .sheet(isPresented: $isShowingNumberPad) {
-            // numberPad 연결
+            if let index = selectedIndex {
+                NumberPadSheetView(
+                    input: bindingForIndex(index),
+                    onClose: {
+                        isShowingNumberPad = false
+                    }
+                )
+                .presentationDetents([.fraction(0.8)])
+            }
         }
     }
 }
 
-#Preview {
-    ContactInfoView()
+private func digitAt(_ phone: String, _ index: Int) -> String {
+    let arr = toDigitsArray(phone)
+    return arr[index]
+}
+
+private func toDigitsArray(_ phone: String) -> [String] {
+    var arr = Array(repeating: "", count: 11)
+    let digitsOnly = phone.filter { $0.isNumber }
+    for (i, ch) in digitsOnly.enumerated() where i < 11 {
+        arr[i] = String(ch)
+    }
+    return arr
+}
+
+private func fromDigitsArray(_ arr: [String]) -> String {
+    arr.joined()
+}
+
+extension ContactInfoView {
+    fileprivate func bindingForIndex(_ index: Int) -> Binding<String> {
+        Binding<String>(
+            get: {
+                digitAt(phone, index)
+            },
+            set: { newVal in
+                let cleaned = newVal.filter { $0.isNumber }.prefix(1)
+                var arr = toDigitsArray(phone)
+                if index >= 0 && index < arr.count {
+                    arr[index] = String(cleaned)
+                    phone = fromDigitsArray(arr)
+                }
+            }
+        )
+    }
 }

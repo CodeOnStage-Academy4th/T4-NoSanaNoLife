@@ -23,7 +23,8 @@ struct PurchaseView: View {
     }
     
     @State private var toResult = false
-    
+    @State private var toCoupon = false
+
     // 알림창
     @State private var showKingAlert: Bool = false
     
@@ -63,9 +64,11 @@ struct PurchaseView: View {
                             }
                             .padding(.horizontal)
                             .alert(isPresented: $showKingAlert) {
-                                Alert(title: Text("저희는 전화번호가 필요하지 않습니다."),
-                                      message: Text("혹시나 적으셨다면 죄송합니다."),
-                                      dismissButton: .default(Text("네. 괜찮습니다.")))
+                                Alert(
+                                    title: Text("저희는 전화번호가 필요하지 않습니다."),
+                                    message: Text("혹시나 적으셨다면 죄송합니다."),
+                                    dismissButton: .default(Text("네. 괜찮습니다."))
+                                )
                             }
                             Spacer()
                             HStack {
@@ -78,7 +81,7 @@ struct PurchaseView: View {
                         }
                         .padding(.vertical)
                         Divider()
-                        
+
                         // 주문 상품
                         HStack {
                             Text("주문 상품")
@@ -101,7 +104,7 @@ struct PurchaseView: View {
                             }
                         }
                         Divider()
-                        
+
                         // 가격
                         InfoRowView(label: "원래 가격", value: "18000원", isStrikethrough: true)
                         InfoRowView(label: "할인 쿠폰", value: "18000원 - \(18000 - finalPrice)원")
@@ -110,7 +113,7 @@ struct PurchaseView: View {
                             Spacer()
                             Button(action: {
                                 // 쿠폰 어케 할거임
-                                
+                                toCoupon = true
                             }) {
                                 HStack(spacing: 3) {
                                     Text("할인 쿠폰 적용")
@@ -118,18 +121,25 @@ struct PurchaseView: View {
                                 }
                             }
                             .font(.caption)
-                            .padding(.horizontal, 10) // 좌우 내부 여백
-                            .padding(.vertical, 8)   // 상하 내부 여백
+                            .padding(.horizontal, 10)  // 좌우 내부 여백
+                            .padding(.vertical, 8)  // 상하 내부 여백
                             .foregroundColor(.black)
                             .background(.green)
                             .clipShape(Capsule())
+
+                            NavigationLink(
+                                "",
+                                destination: CouponView(currentPrice: $finalPrice),
+                                isActive: $toCoupon
+                            )
+                            .hidden()
                         }
-                        
+              
                         InfoRowView(label: "결제 금액", value: "\(finalPrice)원", valueColor: .green)
-                        
+
                         HStack {
                             Spacer()
-                            Text("최소 결제 금액은 10,000원 입니다.")
+                            Text("최소 결제 금액은 18,000원 입니다.")
                                 .font(.caption)
                                 .fontWeight(.light)
                                 .foregroundStyle(.secondary)
@@ -140,6 +150,7 @@ struct PurchaseView: View {
                         // 결제 수단
                         PaymentMethodView(bankMatched: $bankMatched)
                         //                        PaymentMethodView()
+
                     }
                     .padding(.horizontal)
                     
@@ -183,8 +194,6 @@ struct PurchaseView: View {
         }
     }
 }
-
-
 
 #Preview {
     PurchaseView()
