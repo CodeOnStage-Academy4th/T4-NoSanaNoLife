@@ -88,7 +88,16 @@ struct PurchaseView: View {
                                 Text("Code on Stage")
                                     .padding(.top)
                                     .fontWeight(.bold)
-                                Image("loading-img")
+                                ZStack {
+                                    Image("loading-img")
+                                        .resizable()
+                                        .opacity(0.6)
+                                        .frame(width: 200, height: 200)
+                                    LottieView(filename: "loading")
+                                        .frame(width: 210, height: 210)
+                                }
+                                .frame(width: 200, height: 200)
+
                             }
                         }
                         Divider()
@@ -129,8 +138,8 @@ struct PurchaseView: View {
                         Divider()
 
                         // 결제 수단
-                        //                        PaymentMethodView(bankMatched: $bankMatched)
-                        PaymentMethodView()
+                        PaymentMethodView(bankMatched: $bankMatched)
+//                        PaymentMethodView()
 
                     }
                     .padding(.horizontal)
