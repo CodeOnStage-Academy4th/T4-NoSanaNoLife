@@ -28,6 +28,7 @@ struct DatePickerView: View {
             }) {
                 VStack(alignment: .leading) {
                     Text("날짜")
+                        .font(.wantedSemi17)
 
                     HStack(spacing: 8) {
                         ForEach(0..<8) { index in
@@ -45,7 +46,7 @@ struct DatePickerView: View {
 
                             ZStack {
                                 Rectangle()
-                                    .foregroundColor(.primary)
+                                    .foregroundColor(.maincolor)
                                     .frame(
                                         width: 36,
                                         height: 36,

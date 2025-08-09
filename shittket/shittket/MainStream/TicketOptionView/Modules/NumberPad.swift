@@ -35,10 +35,12 @@ struct NumberPad: View {
                         reshuffle() // 매번 랜덤이 되지 않게 하려면 이 시점에 분기 축
                     }) {
                         Text(item.value)
-                            .font(.title)
-                            .frame(maxWidth: .infinity, minHeight: 40)
-                            .background(.clear)
-                            .border(.primary, width: 1)
+                            .font(.wantedSemi17)
+                            .frame(width: 54, height: 54)
+                            .background(.maincolor)
+                            .border(.red, width: 1) //이 부분 패딩 잘 안되네요
+                            .foregroundStyle(.black)
+                            .cornerRadius(8)
                     }
                 }
             }
@@ -49,18 +51,23 @@ struct NumberPad: View {
                     reshuffle()
                 }) {
                     Image(systemName: "delete.left")
-                        .frame(minWidth: 44, minHeight: 40)
-                        .background(.clear)
-                        .border(.primary, width: 1)
+                        .frame(width: 54, height: 54)
+                        .background(.maincolor)
+                        .border(.white, width: 1)
+                        .foregroundStyle(.black)
+                        .cornerRadius(8)
                 }
 
                 Button(action: {
                     onDone()
                 }) {
                     Image(systemName: "keyboard.chevron.compact.down")
-                        .frame(minWidth: 44, minHeight: 40)
-                        .background(.clear)
-                        .border(.primary, width: 1)
+                        .frame(width: 54, height: 54)
+                        .background(.maincolor)
+                        .border(.maincolor, width: 1)
+                        .foregroundStyle(.black)
+                        .cornerRadius(8)
+                        .padding()
                 }
             }
         }
