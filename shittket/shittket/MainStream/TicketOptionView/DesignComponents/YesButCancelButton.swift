@@ -17,17 +17,17 @@ struct YesButCancelButton: View {
         Button(action: action) {
             VStack(spacing: 4) {
                 Text(title)
-                    .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.wantedSemi20)
+//                    .fontWeight(.bold)
                     .foregroundColor(.white)
 
                 Text(subtitle)
-                    .font(.caption)
+                    .font(.wantedReg10)
                     .foregroundColor(.white.opacity(0.9))
             }
             .padding(10)
             .frame(width: 352, height: 180, alignment: .center)
-            .background(.primary)
+            .background(.maincolor)
             .cornerRadius(90)
         }
     }

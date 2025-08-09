@@ -28,7 +28,7 @@ struct LongTextButton: View {
 
             Text("여기는 절대 누르지 않게 주의하세요. 당신이 원하는 답은 여기는 아닙니다.")
         }
-        .font(.body)
+        .font(.wantedMed10)
         .foregroundColor(.gray)
         .padding()
         .navigationDestination(isPresented: $isNext) {

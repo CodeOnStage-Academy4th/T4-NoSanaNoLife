@@ -46,8 +46,10 @@ struct TicketOptionView: View {
             
             HStack {
                 Spacer()
-                
-                Text("1인 1매만 예매 가능합ㄴ디ㅏ")
+              
+                Text("1인 1매만 예매 가능합니다")
+                    .font(.wantedReg10)
+                    .foregroundStyle(.gray)
             }
             
             Spacer()
@@ -59,6 +61,7 @@ struct TicketOptionView: View {
                 LongTextButton()
             }
         }
+        .padding(20)
     }
 }
 
