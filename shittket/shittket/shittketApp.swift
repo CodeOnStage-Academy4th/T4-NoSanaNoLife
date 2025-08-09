@@ -13,8 +13,9 @@ struct MyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(eventManager)
+//            ContentView()
+//                .environmentObject(eventManager)
+            ContentListView()
         }
     }
 }
