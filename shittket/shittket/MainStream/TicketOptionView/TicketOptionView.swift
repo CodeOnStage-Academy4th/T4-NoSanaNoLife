@@ -12,10 +12,10 @@
  날짜 입력칸 8자리 ____ __ __
  인풋 클리어
  모든 칸이 채워야지만 넘어갈 수 있음
-
+ 
  티켓 장수 선택
  선택된 숫자가 1이 아니면 넘어갈 수 없음
-
+ 
  두 섹션에 대해서 조건 미충족시 경고문구 표시
  다음 버튼 (배치는 아직 미정 툴바, 플로팅버튼 두 케이스 고려)
  뒤로 버튼 (갈 수 없음. 버튼만)
@@ -26,38 +26,42 @@ import SwiftUI
 
 struct TicketOptionView: View {
     @EnvironmentObject var eventManager: EventManager
+    @Environment(\.dismiss) private var dismiss
     
     @State private var contentDateRaw = ""
     @State private var ticketCount: Double = 10
-
+    
     var body: some View {
         VStack(spacing: 32) {
             DatePickerView(dateInput: $contentDateRaw)
                 .onTapGesture {
-                        if Double.random(in: 0...1) < 0.6 {
-                            eventManager.triggerScreenFlip()
-                        }
+                    if Double.random(in: 0...1) < 0.6 {
+                        eventManager.triggerScreenFlip()
                     }
-
+                }
+            
             TicketCounter(ticketCount: $ticketCount)
-
+            
             Divider()
-
+            
             HStack {
                 Spacer()
-
-                Text("1인 1매만 예매 가능합ㄴ디ㅏ")
+              
+                Text("1인 1매만 예매 가능합니다")
+                    .font(.wantedReg10)
+                    .foregroundStyle(.gray)
             }
-
+            
             Spacer()
-
+            
             VStack {
                 YesButCancelButton(action: {
-                    print("")
+                    dismiss()
                 })
                 LongTextButton()
             }
         }
+        .padding(20)
     }
 }
 

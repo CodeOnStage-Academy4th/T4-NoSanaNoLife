@@ -11,19 +11,14 @@ struct ContentView: View {
     @EnvironmentObject var eventManager: EventManager
     
     var body: some View {
-        PurchaseView()
-
+        ContentListView()
+            .screenFlip(
+                horizontal: eventManager.HorizontalFlip,
+                vertical: eventManager.VerticalFlip
+            )
     }
-
-//    var body: some View {
-//        TicketOptionView()
-//            .screenFlip(
-//                horizontal: eventManager.HorizontalFlip,
-//                vertical: eventManager.VerticalFlip
-//            )
-//    }
 }
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    ContentView()
+//}
