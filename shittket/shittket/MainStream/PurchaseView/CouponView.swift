@@ -32,6 +32,7 @@ struct CouponView: View {
     }
     private var pay: Int { max(basePrice - totalDiscount, 0) }
     private var isPaymentReady: Bool { pay == basePrice }
+    @State private var showAlert = false
 
     var body: some View {
         NavigationStack {
@@ -105,8 +106,9 @@ struct CouponView: View {
                 }
             }
             .safeAreaInset(edge: .bottom) {
-                BottomPayBar(isEnabled: isPaymentReady) {
-                    // 결제 액션
+                BottomPayBar(isEnabled: true) {
+                    dismiss()
+                    //TODO: alert
                 }
             }
         }
