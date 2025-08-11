@@ -11,26 +11,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		265D2A092E4638200092AB84 /* shittket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shittket.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		265D2A092E4638200092AB84 /* RockRockRock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RockRockRock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		265D2BD82E46B2050092AB84 /* Exceptions for "shittket" folder in "shittket" target */ = {
+		265D2BD82E46B2050092AB84 /* Exceptions for "RockRockRock" folder in "RockRockRock" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 265D2A082E4638200092AB84 /* shittket */;
+			target = 265D2A082E4638200092AB84 /* RockRockRock */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		265D2A6E2E465F940092AB84 /* shittket */ = {
+		265D2A6E2E465F940092AB84 /* RockRockRock */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				265D2BD82E46B2050092AB84 /* Exceptions for "shittket" folder in "shittket" target */,
+				265D2BD82E46B2050092AB84 /* Exceptions for "RockRockRock" folder in "RockRockRock" target */,
 			);
-			path = shittket;
+			path = RockRockRock;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -50,7 +50,7 @@
 		265D2A002E4638200092AB84 = {
 			isa = PBXGroup;
 			children = (
-				265D2A6E2E465F940092AB84 /* shittket */,
+				265D2A6E2E465F940092AB84 /* RockRockRock */,
 				265D2A0A2E4638200092AB84 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,7 +58,7 @@
 		265D2A0A2E4638200092AB84 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				265D2A092E4638200092AB84 /* shittket.app */,
+				265D2A092E4638200092AB84 /* RockRockRock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,9 +66,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		265D2A082E4638200092AB84 /* shittket */ = {
+		265D2A082E4638200092AB84 /* RockRockRock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 265D2A162E4638210092AB84 /* Build configuration list for PBXNativeTarget "shittket" */;
+			buildConfigurationList = 265D2A162E4638210092AB84 /* Build configuration list for PBXNativeTarget "RockRockRock" */;
 			buildPhases = (
 				265D2A052E4638200092AB84 /* Sources */,
 				265D2A062E4638200092AB84 /* Frameworks */,
@@ -80,14 +80,14 @@
 				274F5E262E46CA1B004650D9 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				265D2A6E2E465F940092AB84 /* shittket */,
+				265D2A6E2E465F940092AB84 /* RockRockRock */,
 			);
-			name = shittket;
+			name = RockRockRock;
 			packageProductDependencies = (
 				274F5E1F2E46C986004650D9 /* Lottie */,
 			);
 			productName = shittket;
-			productReference = 265D2A092E4638200092AB84 /* shittket.app */;
+			productReference = 265D2A092E4638200092AB84 /* RockRockRock.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +105,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 265D2A042E4638200092AB84 /* Build configuration list for PBXProject "shittket" */;
+			buildConfigurationList = 265D2A042E4638200092AB84 /* Build configuration list for PBXProject "RockRockRock" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -122,7 +122,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				265D2A082E4638200092AB84 /* shittket */,
+				265D2A082E4638200092AB84 /* RockRockRock */,
 			);
 		};
 /* End PBXProject section */
@@ -337,7 +337,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		265D2A042E4638200092AB84 /* Build configuration list for PBXProject "shittket" */ = {
+		265D2A042E4638200092AB84 /* Build configuration list for PBXProject "RockRockRock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				265D2A142E4638210092AB84 /* Debug */,
@@ -346,7 +346,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		265D2A162E4638210092AB84 /* Build configuration list for PBXNativeTarget "shittket" */ = {
+		265D2A162E4638210092AB84 /* Build configuration list for PBXNativeTarget "RockRockRock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				265D2A172E4638210092AB84 /* Debug */,
